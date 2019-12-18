@@ -13,12 +13,11 @@
 using namespace std;
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
-int metProPin(ifstream &fin, Proion pinPro[5]);
+int metProPin(ifstream &fin, Proion pinPro[]);
 
 int menuProionta(Proion pinPro[], int n);
 
 int anaKodPro(Proion pinPro[], int n, int kodAna);
-
 
 
 int main(int argc, char** argv) {
@@ -30,47 +29,40 @@ int main(int argc, char** argv) {
 
     ifstream inFile;
     ofstream outFile;
-    inFile.open("proionta4200.txt");
+    inFile.open("PROIONTA4200.txt", ios::in);
     outFile.open("agores4200.txt");
 
-
     megethosPinPro = metProPin(inFile,proionta);
-
-
 
     inFile.close();
     outFile.close();
 
     pelatis.reaData();
 
+    proionta[0].printData();
 
-
-    system("pause");
-	return 0;
+    return 0;
 }
 
 
 int metProPin(ifstream &fin, Proion pinPro[]){
     int kodPro,i;
-    char onomaProiontos[21];
+    char onomaProiontos[40];
     float timiProiontos;
 
     if (!fin.is_open())
         cout<<"Error opening input file!"<<endl;
     else{
-        fin >> kodPro;
         i=0;
         while(!fin.eof()){
-            fin >> onomaProiontos;
-            fin >> timiProiontos;
-
+            fin >> kodPro;
+	    fin >> onomaProiontos;
+	    fin >> timiProiontos;
             pinPro[i].setData(kodPro,onomaProiontos,timiProiontos);
             i++;
-
-            fin >> kodPro;
         }
     }
-	return i;
+    return i;
 }
 
 int menuProionta(Proion pinPro[], int n){

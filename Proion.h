@@ -9,6 +9,8 @@ class Proion
 		float timPro;
 
 	public:
+		Proion();
+		Proion(int kodPro1, char perPro1[], float timPro1);
 		void setData(int kodPro1, char perPro1[], float timPro1);
 		void printData();
 		int getKodPro();

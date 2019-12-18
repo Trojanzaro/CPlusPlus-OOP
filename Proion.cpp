@@ -5,10 +5,22 @@
 
 using namespace std;
 
+Proion::Proion(){
+    this->kodPro = 999999;
+    strcpy(perPro,"NO-ITEM");
+    this->timPro = 0.0;
+}
+
+Proion::Proion(int kodPro1, char perPro1[], float timPro1){
+    this->kodPro = kodPro1;
+    strcpy(perPro,perPro1);
+    this->timPro = timPro1;
+}
+
 void Proion::setData(int kodPro1, char perPro1[], float timPro1){
-    kodPro = kodPro1;
-    //strcpy(perPro,perPro1);
-    timPro = timPro1;
+    this->kodPro = kodPro1;
+    strcpy(perPro,perPro1);
+    this->timPro = timPro1;
 }
 
 void Proion::printData(){
